@@ -26,8 +26,15 @@ const OtpInput = () => {
     try {
       const res = await axios.post(
         'https://ladx-backend-ts.onrender.com/api/v1/verify-otp',
-        { otp: enteredOtp }
+        { otp: enteredOtp },
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
       );
+
+      console.log(res.data);
 
       if (res.data.success) {
         navigate('/'); // Redirects to the dashboard on successful OTP

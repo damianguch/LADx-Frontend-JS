@@ -15,9 +15,13 @@ export const SignUp = () => {
    */
 
   const [data, setData] = React.useState({
-    name: '',
+    fullname: '',
     email: '',
-    password: ''
+    country: '',
+    state: '',
+    phone: '',
+    password: '',
+    confirm_password: ''
   });
 
   const handleChange = (e) => {

@@ -42,7 +42,11 @@ const OtpInput = () => {
         setError('Invalid OTP. Please try again.');
       }
     } catch (error) {
-      setError('Error verifying OTP. Please try again.');
+      console.error('Error response:', error.response);
+      setError(
+        error.response?.data?.message ||
+          'Error verifying OTP. Please try again.'
+      );
     }
   };
 

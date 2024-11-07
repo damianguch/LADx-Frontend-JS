@@ -11,6 +11,7 @@ import Profile from './components/Profile';
 import { RequireToken } from './components/Auth';
 import Navbar from './components/Navbar';
 import { ModeToggler } from './components/Test';
+import OtpInput from './components/Otp';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/otp" element={<OtpInput />} />
 
           <Route
             path="/"

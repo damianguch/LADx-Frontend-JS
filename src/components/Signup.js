@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const SignUp = () => {
-  // const [email, setEmail] = useState('');
-  // const [name, setName] = useState('');
-  // const [password, setPassword] = useState('');
   const [registerStatus, setRegisterStatus] = useState('');
+  const navigate = useNavigate();
 
   /**
    * The approach below, the component's state remains in sync with the
@@ -43,15 +41,16 @@ export const SignUp = () => {
     };
 
     try {
-      const response = await axios.post(
+      const res = await axios.post(
         'https://ladx-backend-ts.onrender.com/api/v1/signup',
         userData
       );
 
-      if (response.data.message) {
-        setRegisterStatus(response.data.message);
+      if (res.data.success) {
+        setRegisterStatus(res.data.message);
+        navigate('/otp');
       } else {
-        setRegisterStatus('Account Created Successfully');
+        setRegisterStatus(res.data.message);
       }
     } catch (err) {
       if (err.response) {

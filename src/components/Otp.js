@@ -22,6 +22,7 @@ const OtpInput = () => {
   // Send OTP to backend for confirmation
   const verifyOtp = async () => {
     const enteredOtp = otp.join('');
+    console.log(enteredOtp);
     try {
       const res = await axios.post(
         'https://ladx-backend-ts.onrender.com/api/v1/verify-otp',

@@ -20,8 +20,7 @@ export const SignUp = () => {
     country: '',
     state: '',
     phone: '',
-    password: '',
-    confirm_password: ''
+    password: ''
   });
 
   const handleChange = (e) => {
@@ -35,6 +34,9 @@ export const SignUp = () => {
     const userData = {
       name: data.name,
       email: data.email,
+      country: data.country,
+      state: data.state,
+      phone: data.phone,
       password: data.password
     };
 
@@ -176,22 +178,6 @@ export const SignUp = () => {
 
                 <label htmlFor="password" className="form-label">
                   Password
-                </label>
-              </div>
-
-              <div className="form-outline mb-4">
-                <input
-                  onChange={handleChange}
-                  type="password"
-                  id="confirm-password"
-                  name="confirm-password"
-                  className="form-control form-control-lg"
-                  placeholder="Confirm Password"
-                  required
-                />
-
-                <label htmlFor="email" className="form-label">
-                  Confirm Password
                 </label>
               </div>
 

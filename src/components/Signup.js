@@ -42,7 +42,7 @@ export const SignUp = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:5000/register',
+        'https://ladx-backend-ts.onrender.com/api/v1/signup',
         userData
       );
 

@@ -20,7 +20,8 @@ export const SignUp = () => {
     country: '',
     state: '',
     phone: '',
-    password: ''
+    password: '',
+    confirm_password: ''
   });
 
   const handleChange = (e) => {
@@ -32,12 +33,13 @@ export const SignUp = () => {
     e.preventDefault();
 
     const userData = {
-      name: data.name,
+      fullname: data.fullname,
       email: data.email,
       country: data.country,
       state: data.state,
       phone: data.phone,
-      password: data.password
+      password: data.password,
+      confirm_password: data.confirm_password
     };
 
     try {
@@ -91,14 +93,14 @@ export const SignUp = () => {
                 <input
                   onChange={handleChange}
                   type="text"
-                  id="name"
-                  name="name"
+                  id="fullname"
+                  name="fullname"
                   className="form-control form-control-lg"
-                  placeholder="Enter your Name"
+                  placeholder="Enter your Fullname"
                   required
                 />
 
-                <label htmlFor="name">Name</label>
+                <label htmlFor="fullname">Fullname</label>
               </div>
 
               <div className="form-outline mb-4">
@@ -178,6 +180,22 @@ export const SignUp = () => {
 
                 <label htmlFor="password" className="form-label">
                   Password
+                </label>
+              </div>
+
+              <div className="form-outline mb-3">
+                <input
+                  onChange={handleChange}
+                  type="password"
+                  id="confirm_password"
+                  name="confirm_password"
+                  className="form-control form-control-lg"
+                  placeholder="Enter your password again"
+                  required
+                />
+
+                <label htmlFor="confirm_password" className="form-label">
+                  Confirm Password
                 </label>
               </div>
 

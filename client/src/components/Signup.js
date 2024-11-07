@@ -115,6 +115,54 @@ export const SignUp = () => {
                 </label>
               </div>
 
+              <div className="form-outline mb-4">
+                <input
+                  onChange={handleChange}
+                  type="text"
+                  id="country"
+                  name="country"
+                  className="form-control form-control-lg"
+                  placeholder="Enter your country name"
+                  required
+                />
+
+                <label htmlFor="country" className="form-label">
+                  Country
+                </label>
+              </div>
+
+              <div className="form-outline mb-4">
+                <input
+                  onChange={handleChange}
+                  type="text"
+                  id="state"
+                  name="state"
+                  className="form-control form-control-lg"
+                  placeholder="Enter your state"
+                  required
+                />
+
+                <label htmlFor="state" className="form-label">
+                  State
+                </label>
+              </div>
+
+              <div className="form-outline mb-4">
+                <input
+                  onChange={handleChange}
+                  type="number"
+                  id="phone"
+                  name="phone"
+                  className="form-control form-control-lg"
+                  placeholder="Enter your phone number"
+                  required
+                />
+
+                <label htmlFor="email" className="form-label">
+                  Phone
+                </label>
+              </div>
+
               <div className="form-outline mb-3">
                 <input
                   onChange={handleChange}
@@ -128,6 +176,22 @@ export const SignUp = () => {
 
                 <label htmlFor="password" className="form-label">
                   Password
+                </label>
+              </div>
+
+              <div className="form-outline mb-4">
+                <input
+                  onChange={handleChange}
+                  type="password"
+                  id="confirm-password"
+                  name="confirm-password"
+                  className="form-control form-control-lg"
+                  placeholder="Confirm Password"
+                  required
+                />
+
+                <label htmlFor="email" className="form-label">
+                  Confirm Password
                 </label>
               </div>
 

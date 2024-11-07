@@ -43,10 +43,7 @@ export const SignUp = () => {
     try {
       const res = await axios.post(
         'https://ladx-backend-ts.onrender.com/api/v1/signup',
-        userData,
-        {
-          withCredentials: true
-        }
+        userData
       );
 
       if (res.data.success) {

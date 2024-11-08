@@ -24,19 +24,33 @@ const OtpInput = () => {
     const enteredOtp = otp.join('');
     console.log(enteredOtp);
     try {
-      const res = await axios.post(
+      // const res = await axios.post(
+      //   'https://ladx-backend-ts.onrender.com/api/v1/verify-otp',
+      //   { otp: enteredOtp },
+      //   {
+      //     headers: {
+      //       'Content-Type': 'application/json'
+      //     }
+      //   }
+      // );
+
+      const res = await fetch(
         'https://ladx-backend-ts.onrender.com/api/v1/verify-otp',
-        { otp: enteredOtp },
         {
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json'
-          }
+          },
+          credentials: 'include',
+          body: JSON.stringify({ otp: enteredOtp })
         }
       );
 
-      console.log(res.data);
+      const data = await res.json();
 
-      if (res.data.success) {
+      console.log(data);
+
+      if (data.success) {
         navigate('/'); // Redirects to the dashboard on successful OTP
       } else {
         setError('Invalid OTP. Please try again.');

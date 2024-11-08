@@ -41,16 +41,30 @@ export const SignUp = () => {
     };
 
     try {
-      const res = await axios.post(
+      // const res = await axios.post(
+      //   'https://ladx-backend-ts.onrender.com/api/v1/signup',
+      //   userData,
+      //   {
+      //     withCredentials: true
+      //   }
+      // );
+
+      const res = await fetch(
         'https://ladx-backend-ts.onrender.com/api/v1/signup',
-        userData,
         {
-          withCredentials: true
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(userData)
         }
       );
 
-      if (res.data.success) {
-        setRegisterStatus(res.data.message);
+      const responseData = await res.json();
+
+      if (res.ok && responseData.success) {
+        setRegisterStatus(responseData.message);
         navigate('/otp');
       } else {
         setRegisterStatus(res.data.message);

@@ -164,7 +164,7 @@ export const SignUp = () => {
                   required
                 />
 
-                <label htmlFor="email" className="form-label">
+                <label htmlFor="phone" className="form-label">
                   Phone
                 </label>
               </div>

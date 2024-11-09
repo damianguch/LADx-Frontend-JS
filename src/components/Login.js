@@ -30,7 +30,7 @@ const Login = () => {
       .then((res) => {
         console.log(res);
         if (res.data.success) {
-          navigate('/');
+          navigate('/signup');
           console.log(res.data);
 
           // Dispatch a custom event to notify the Navbar component about the

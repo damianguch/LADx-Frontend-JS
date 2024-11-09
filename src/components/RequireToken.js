@@ -14,6 +14,7 @@ const RequireToken = ({ children }) => {
           withCredentials: true
         })
         .then((res) => {
+          console.log(res.data);
           if (res.data.isAuthenticated) {
             setIsAuthenticated(true);
           } else {

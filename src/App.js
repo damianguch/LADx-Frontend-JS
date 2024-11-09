@@ -8,7 +8,7 @@ import Employee from './components/Employees';
 import AddEmployee from './components/AddEmployee';
 import EditEmployee from './components/EditEmployee';
 import Profile from './components/Profile';
-import { RequireToken } from './components/Auth';
+// import { RequireToken } from './components/Auth';
 import Navbar from './components/Navbar';
 import { ModeToggler } from './components/Test';
 import OtpInput from './components/Otp';
@@ -24,13 +24,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/otp" element={<OtpInput />} />
 
-          <Route
-            path="/"
-            element={
-              <RequireToken>
-                <Dashboard />
-              </RequireToken>
-            }>
+          <Route path="/" element={<Dashboard />}>
             <Route path="" element={<Home />}></Route>
             <Route path="/employees" element={<Employee />}></Route>
             <Route path="/create" element={<AddEmployee />}></Route>

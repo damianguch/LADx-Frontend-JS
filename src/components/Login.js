@@ -10,7 +10,7 @@ const Login = () => {
     password: ''
   });
   const [error, setError] = useState('');
-  const [token, setToken] = useState(null);
+  // const [token, setToken] = useState(null);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -27,13 +27,15 @@ const Login = () => {
     };
 
     axios
-      .post('http://localhost:5000/login', userData)
+      .post('https://ladx-backend-ts.onrender.com/api/v1/login', userData, {
+        withCredentials: true
+      })
       .then((res) => {
         console.log(res);
-        if (res.data.Status === 'Success') {
-          console.log(res.data.Token);
-          setJwToken(res.data.Token);
-          setToken(res.data.Token);
+        if (res.data.success) {
+          // console.log(res.data.Token);
+          // setJwToken(res.data.Token);
+          // setToken(res.data.Token);
 
           // Dispatch a custom event to notify the Navbar component about the
           // authentication status change.
@@ -56,10 +58,11 @@ const Login = () => {
   // With the below, we ensure that the navigation logic is separated from the
   // login logic and handled reactively based on the token state change
   useEffect(() => {
-    if (token) {
-      navigate('/');
-    }
-  }, [token, navigate]);
+    // if (token) {
+    //   navigate('/');
+    // }
+    navigate('/');
+  }, [navigate]);
 
   return (
     <div className="container" style={{ paddingTop: 60 }}>

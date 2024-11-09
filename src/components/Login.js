@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import img_log from './img-log.jpg';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import { setJwToken } from './Auth';
 
 const Login = () => {
   const [data, setData] = useState({
@@ -33,15 +32,14 @@ const Login = () => {
       .then((res) => {
         console.log(res);
         if (res.data.success) {
-          // console.log(res.data.Token);
-          // setJwToken(res.data.Token);
-          // setToken(res.data.Token);
+          navigate('/');
+          console.log(res.data);
 
           // Dispatch a custom event to notify the Navbar component about the
           // authentication status change.
           window.dispatchEvent(new Event('authChange'));
         } else {
-          setError(res.data.Error);
+          setError(`An error occurred during login: ${res.data.Error}`);
         }
       })
       .catch((error) => {
@@ -57,12 +55,12 @@ const Login = () => {
 
   // With the below, we ensure that the navigation logic is separated from the
   // login logic and handled reactively based on the token state change
-  useEffect(() => {
-    // if (token) {
-    //   navigate('/');
-    // }
-    navigate('/');
-  }, [navigate]);
+  // useEffect(() => {
+  //   if (token) {
+  //     navigate('/');
+  //   }
+
+  // }, [token, navigate]);
 
   return (
     <div className="container" style={{ paddingTop: 60 }}>

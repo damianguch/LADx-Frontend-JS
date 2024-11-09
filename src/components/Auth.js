@@ -5,9 +5,22 @@ export const setJwToken = (token) => {
   localStorage.setItem('Token', token);
 };
 
+// export const fetchToken = () => {
+//   // fetch the token
+//   return localStorage.getItem('Token');
+// };
+
+// Helper function to retrieve a specific cookie by name
+const getCookie = (name) => {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+};
+
+// Fetch token from cookies instead of localStorage
 export const fetchToken = () => {
-  // fetch the token
-  return localStorage.getItem('Token');
+  return getCookie('token');
 };
 
 export function RequireToken({ children }) {

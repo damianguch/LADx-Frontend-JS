@@ -26,9 +26,7 @@ const Login = () => {
     };
 
     axios
-      .post('https://ladx-backend-ts.onrender.com/api/v1/login', userData, {
-        withCredentials: true
-      })
+      .post('https://ladx-backend-ts.onrender.com/api/v1/login', userData)
       .then((res) => {
         console.log(res);
         if (res.data.success) {

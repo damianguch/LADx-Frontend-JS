@@ -26,16 +26,18 @@ const Login = () => {
     };
 
     axios
-      .post('https://ladx-backend-ts.onrender.com/api/v1/login', userData)
+      .post('https://ladx-backend-ts.onrender.com/api/v1/login', userData, {
+        withCredentials: true
+      })
       .then((res) => {
         console.log(res);
         if (res.data.success) {
-          navigate('/signup');
+          navigate('/');
           console.log(res.data);
 
           // Dispatch a custom event to notify the Navbar component about the
           // authentication status change.
-          window.dispatchEvent(new Event('authChange'));
+          // window.dispatchEvent(new Event('authChange'));
         } else {
           setError(`An error occurred during login: ${res.data.Error}`);
         }
